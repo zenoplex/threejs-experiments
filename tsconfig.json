@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "rootDir": "src",
+    "module": "es2015",
+    "target": "es5",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "paths": {
+      "*": [
+          "node_modules/*",
+          "src/types/*"
+      ]
+    },
+    "lib":[
+      "es2015",
+      "dom"
+    ]
+  },
+  "include": ["src/**/*", "./typings/**/*.d.ts"]
+}
