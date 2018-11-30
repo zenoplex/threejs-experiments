@@ -59,7 +59,26 @@ module.exports = {
     ...pages,
   ],
   optimization: {
-    minimizer: [new UglifyJsWebpackPlugin()]
+    minimizer: [new UglifyJsWebpackPlugin()],
+    concatenateModules: true,
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'all',
+      maxAsyncRequests: Infinity,
+      maxInitialRequests: Infinity,
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
   output: {
     filename: '[name].bundle.js',
